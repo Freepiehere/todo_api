@@ -29,7 +29,7 @@ router.delete('/:taskid',(req,res) => {
     connection.query('DELETE FROM todo WHERE task_id=?',taskid,(err,result)=>{
         if (err) throw err;
         console.log("Successfully deleted item " + taskid);
-        return res.send(result);
+        return res.send(result.affectedRows);
     })
 });
 router.put('/:taskid', (req,res) => {
